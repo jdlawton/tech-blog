@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS dev_zero_db;
+
+CREATE DATABASE dev_zero_db;
