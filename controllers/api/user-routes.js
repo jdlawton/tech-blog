@@ -98,6 +98,30 @@ router.post('/', (req, res) => {
         });
 });
 
+//login route
+router.post('/login', (req, res) => {
+    //expects {username: 'Username', password: '12345'}
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    }).then(dbUserData => {
+        if(!dbUserData) {
+            res.status(400).json({message: 'No user with that username!'});
+            return;
+        }
+
+        //verify user
+        const validPassword = dbUserData.checkPassword(req.body.password);
+        if(!validPassword) {
+            res.status(400).json({message: 'Incorrect password!'});
+            return;
+        }
+        
+        res.json({user: dbUserData, message: 'You are now logged in!'});
+    });
+});
+
 /*
 //login route
 router.post('/login', (req, res) => {
@@ -174,6 +198,7 @@ router.put('/:id', (req, res) => {
 router.put('/:id', (req,res) => {
     //expects {username: 'Username', password: '12345'}
     User.update(req.body, {
+        individualHooks: true,
         where: {
             id: req.params.id
         }
