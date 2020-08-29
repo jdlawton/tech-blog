@@ -11,13 +11,7 @@
   </div>
 </article>-->
 
-<article class="post">
-    <div class="title">{{post.title}}</div>
-    <div class="meta">
-        <p>posted by {{post.user.username}} on {{post.created_at}}</p>
-    </div>
-    <div>{{post.content}}</div>
-</article>
+{{> post-info post}}
 
 {{#if loggedIn}}
 <form class="comment-form">
@@ -32,18 +26,7 @@
 </form>
 {{/if}}
 
-<div class="comments">
-  {{#each post.comments as |comment|}}
-  <section class="comment">
-    <div class="meta">
-      {{comment.user.username}} on {{comment.created_at}}
-    </div>
-    <div class="text">
-      {{comment.comment_text}}
-    </div>
-  </section>
-  {{/each}}
-</div>
+{{> comments post.comments}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
