@@ -1,29 +1,30 @@
 <article>
-    <a href="/dashboard"> &larr; Back to dashboard</a>
+    <!--<a href="/dashboard"> &larr; Back to dashboard</a>-->
     <h2>Edit Post</h2>
     <form class="edit-post-form">
         <div>
-            <input name="post-title" type="text" value="{{post.title}}" />
-            <input name="post-content" type="text" value="{{post.content}}" />
+            <input name="post-title" type="text" value="{{post.title}}" /><br>
+            <!--<input name="post-content" type="text" value="{{post.content}}" /><br>-->
+            <textarea name="post-content" rows="15" cols="100">{{post.content}}</textarea>
         </div>
         <div>
             <p>posted by you on {{format_date post.created_at}}</p>
-            |
-            <a href="/post/{{post.id}}">{{post.comments.length}} comments</a>
+            <!--|
+            <a href="/post/{{post.id}}">{{post.comments.length}} comments</a>-->
         </div>
-        <button type="submit">save post</button>
+        <button type="submit">update post</button>
         <button type="button" class="delete-post-btn">delete post</button>
     </form>
 </article>
 
-<form class="comment-form">
+<!--<form class="comment-form">
     <div>
         <textarea name="comment-body"></textarea>
     </div>
     <div>
         <button type="submit">add comment</button>
     </div>
-</form>
+</form>-->
 
 {{> comments post.comments}}
 

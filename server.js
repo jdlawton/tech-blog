@@ -10,10 +10,10 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 require('dotenv').config();
 
-
+//cookie timeout is 1 hour
 const sess = {
     secret: process.env.DB_SECRET,
-    cookie: {},
+    cookie: {maxAge: 3600000},
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
