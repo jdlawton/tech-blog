@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {User, Post, Comment} = require('../../models');
-//const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 //GET /api/users
 router.get('/', (req, res) => {
@@ -131,7 +131,7 @@ router.post('/login', (req, res) => {
 });
 
 //logout route
-router.post('/logout', (req, res) => {
+router.post('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
@@ -214,7 +214,7 @@ router.put('/:id', (req, res) => {
 */
 
 //PUT /api/users/1 (Updates user info)
-router.put('/:id', (req,res) => {
+router.put('/:id', withAuth, (req,res) => {
     //expects {username: 'Username', password: '12345'}
     User.update(req.body, {
         individualHooks: true,
@@ -258,7 +258,7 @@ router.delete('/:id', withAuth, (req, res) => {
 */
 
 //DELETE /api/users/1 (Not used in the front end)
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     User.destroy({
         where: {
             id: req.params.id
