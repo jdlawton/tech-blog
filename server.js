@@ -6,12 +6,13 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 //const hbs = exphbs.create({helpers});
 const hbs = exphbs.create({});
-//const session = require('express-session');
-//const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+require('dotenv').config();
 
-/*
+
 const sess = {
-    secret: 'Super secret secret',
+    secret: process.env.DB_SECRET,
     cookie: {},
     resave: false,
     saveUninitialized: true,
@@ -19,7 +20,7 @@ const sess = {
         db: sequelize
     })
 };
-*/
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -27,7 +28,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(session(sess));
+app.use(session(sess));
 
 //set handlebars as template engine
 app.engine('handlebars', hbs.engine);
