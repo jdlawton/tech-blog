@@ -1,3 +1,4 @@
+//when a post id edited, and the update button is pressed, this function will send the PUT to the api to update the database with the new info.
 async function editFormHandler(event) {
     event.preventDefault();
 
@@ -6,7 +7,7 @@ async function editFormHandler(event) {
     ];
 
     const title = document.querySelector('input[name="post-title"]').value;
-    const content = document.querySelector('input[name="post-content"]').value;
+    const content = document.querySelector('textarea[name="post-content"]').value;
 
     const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',

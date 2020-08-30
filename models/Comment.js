@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 
 class Comment extends Model {}
 
+//the comment table consists of columns for id, comment_text, the user_id of the user that posted the comment, and the post_id that the comment is a part of
 Comment.init(
     {
         id: {

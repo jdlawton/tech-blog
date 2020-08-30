@@ -1,3 +1,5 @@
+/*This stylesheet is taken from the just-tech-news online project, modules 14 and edited to style my site the way I wanted.*/
+
 * {
   box-sizing: border-box;
 }
@@ -7,25 +9,29 @@ body, html {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  color: #333;
+  color: white;
+  background-color: #0C0C0C;
 }
 
 a {
   text-decoration: none;
-  color: #225ca3;
+  color: lightgray;
   font-weight: bold;
   transition: color .1s;
 }
 
+p {
+  margin: 0;
+}
+
 a:hover {
-  color: #3486eb;
+  color: white;
 }
 
 button {
-  background-color: #225ca3;
+  background-color: #00F200;
   border: 0;
   padding: 1%;
-  color: white;
   font-weight: bold;
   transition: background-color .1s;
   cursor: pointer;
@@ -33,12 +39,20 @@ button {
 }
 
 button:hover {
-  background-color: #3486eb;
+  background-color: white;
+}
+
+.soft-text {
+  font-size: smaller;
+  font-style: italic;
+  color: lightgray;
+  opacity: 90%;
 }
 
 .post-list {
   margin: 0;
   padding: 0;
+  list-style-type: none;
 }
 
 textarea, input {
@@ -74,16 +88,30 @@ form label {
   flex-direction: column;
 }
 
+#banner {
+  width: min-content;
+  align-self: center;
+}
+
 header {
-  border-bottom: 1px solid #ccc;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   padding: 0 1%;
 }
 
+nav p{
+  display: inline;
+}
+
+
 header h1 {
   font-size: 1em;
+}
+
+nav a {
+  margin-left: 16px;
+  color: lightgray;
 }
 
 main {
@@ -97,7 +125,7 @@ main {
   padding: 0;
   cursor: pointer;
   text-decoration: none;
-  color: #225ca3;
+  color: lightgray;
   font-size: 100%;
   font-weight: bold;
   transition: color .1s;
@@ -106,7 +134,7 @@ main {
 
 .btn-no-style:hover {
   background: none;
-  color: #3486eb;
+  color: white;
 }
 
 .delete-post-btn {
@@ -128,22 +156,25 @@ main {
   color: #7d7d7d;
 }
 
+.title a{
+  color: #00F200;
+}
+
+.title a:hover {
+  color: white;
+}
+
 .edit-link {
   display: block;
   margin: -1.5% 0 2% 0;
 }
 
-.upvote-btn {
-  background-color: #197d0f;
-  transition: background-color .1s;
-}
-
-.upvote-btn:hover {
-  background-color: #1f9c13;
-}
-
 .comment-form {
   margin-bottom: 5%;
+}
+
+.comment-form textarea {
+  font-family: sans-serif;
 }
 
 .comment {
@@ -151,22 +182,26 @@ main {
   margin-bottom: 1%;
 }
 
-.comment:nth-child(odd) {
-  background-color: #fff5eb;
-}
-
 .comment .meta {
   font-size: 90%;
   margin-bottom: .5%;
-  opacity: .6;
 }
 
 .new-post-form input {
   width: 300px;
 }
 
+.new-post-btn {
+  font-size: 18px;
+}
+
 .edit-post-form {
   margin-bottom: 5%;
+}
+
+.edit-post-form textarea {
+  font-family: sans-serif;
+  font-size: 14px;
 }
 
 footer {
@@ -179,4 +214,8 @@ footer {
 
 #create-new-post {
   display: none;
+}
+
+.new-post-content {
+  font-family: sans-serif;
 }

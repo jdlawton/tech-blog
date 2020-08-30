@@ -1,3 +1,4 @@
+<!--The main handlebars layout for the site-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,23 +6,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>/dev/zero/ blog</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 </head>
 
 <body>
   <div class="wrapper">
+    <img id="banner" src="/images/devzeroblogtitle.gif" alt="The /dev/zero > blog logo">
     <header>
-      <h1>
-        <a href="/">/dev/zero/ blog</a>
-      </h1>
-      <h2>Welcome, {{username}}</h2>
       <nav>
-          <a href="/">home</a>
-          <a href="/dashboard">dashboard</a>
           {{#if loggedIn}}
-          <button id="logout" class="btn-no-style">logout</button>
+            <p class="soft-text">welcome {{username}}</p>
+          {{/if}}
+            <a href="/">home</a>
+            <a href="/dashboard">dashboard</a>
+          {{#if loggedIn}}
+            <button id="logout" class="btn-no-style">logout</button>
           {{else}}
-          <a href="/login">login</a>
+            <a href="/login">login</a>
           {{/if}}
           
       </nav>
@@ -29,9 +30,6 @@
     <main>
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for visiting!
-    </footer>
   </div>
 
   {{#if loggedIn}}

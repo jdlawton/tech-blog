@@ -1,3 +1,4 @@
+//when the user fills out the login page and clicks the login button, this function will post to the login route on the back end.
 async function loginFormHandler(event) {
     event.preventDefault();
 
@@ -6,7 +7,7 @@ async function loginFormHandler(event) {
 
     if (username && password) {
         const response = await fetch('/api/users/login', {
-            method: 'post',
+            method: 'POST',
             body: JSON.stringify({
                 username,
                 password

@@ -1,18 +1,8 @@
-<!--
-<article class="post">
-    <div class="title"><a href="/post/{{id}}">{{post.title}}</a></div>
-    <div>{{post.content}}</div>
-    <div class="meta">
-        posted by {{post.user.username}} on {{post.created_at}}
-    </div>
-</article> -->
-
-
+<!--A handlebars partial that is used to display the information for a single post, i.e. title, author, date, and content-->
 <article class="post">
     <div class="title"><a href="/post/{{id}}">{{title}}</a></div>
-    <div>{{content}}</div>
-    <div class="meta">
+    <div class="meta soft-text">
         <p>posted by {{user.username}} on {{format_date created_at}}</p>
     </div>
-    <div>{{post.content}}</div>
+    <div>{{content}}</div>
 </article>

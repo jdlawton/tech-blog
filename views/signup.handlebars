@@ -1,4 +1,6 @@
-
+<!-- handlebars template used to display the signup page. while similar to login.handlebars, I needed to make them two separate templates
+instead of using a single partial because while they look similar the input names and scripts needed to do different enough things that 
+this seemed to be the easiest way to implement this functionality, though there may be a better way-->
 <form class="signup-form">
   <div>
     <label for="username-signup">username:</label>
@@ -9,8 +11,8 @@
     <input type="password" id="password-signup" />
   </div>
   <div>
-    <button type="submit">signup</button><br>
-    <a href="/login">Already registered? Login instead</a>
+    <button type="submit">signup</button><br><br>
+    <a href="/login">already registered? login instead</a>
   </div>
 </form>
 

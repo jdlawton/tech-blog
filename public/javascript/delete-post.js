@@ -1,3 +1,4 @@
+//this function is called when the delete button is clicked on a post. it sends a delete call to the api for the appropriate post id.
 async function deleteFormHandler(event) {
     event.preventDefault();
 

@@ -2,6 +2,8 @@ const router = require('express').Router();
 const {Comment, User, Post} = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//NOTE: not all of the routes are currently being used by the live site, but I wanted to implement full CRUD routes for completeness sake.
+
 //get all comments
 router.get('/', (req, res) => {
     Comment.findAll()
@@ -46,7 +48,6 @@ router.get('/:id', (req, res) => {
 
 //post a new comment
 router.post('/', withAuth, (req, res) => {
-    //check for session
     if (req.session) {
         Comment.create({
             comment_text: req.body.comment_text,
@@ -95,7 +96,7 @@ router.delete('/:id', withAuth, (req, res) => {
     })
         .then(dbCommentData => {
             if (!dbCommentData) {
-                res.status(404).json({message: 'No comment found iwth this id'});
+                res.status(404).json({message: 'No comment found with this id'});
                 return;
             }
             res.json(dbCommentData);

@@ -1,3 +1,4 @@
+//when a new comment is submitted, this function is called to post the new comment to the database.
 async function commentFormHandler(event) {
     event.preventDefault();
 

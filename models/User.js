@@ -9,6 +9,8 @@ class User extends Model {
     }
 }
 
+//user table has an id, a username, and a password
+
 User.init(
     {
         id: {
@@ -34,6 +36,8 @@ User.init(
         }
     },
     {
+        //the hooks are to make sure the password gets hashed before going into the database so we are never storing a plaintext password.
+        //password is hashed upon user creation or user update.
         hooks: {
             //set up beforeCreate lifecycle "hook" functionality
             async beforeCreate(newUserData) {

@@ -1,3 +1,4 @@
+//when a new user fills out the signup form and clicks the button to sign up, this function will post the new user info to the database.
 async function signupFormHandler(event) {
     event.preventDefault();
 
@@ -6,7 +7,7 @@ async function signupFormHandler(event) {
 
     if (username && password) {
         const response = await fetch('/api/users', {
-            method: 'post',
+            method: 'POST',
             body: JSON.stringify({
                 username,
                 password

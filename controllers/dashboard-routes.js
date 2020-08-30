@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const {Post, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
+//when the user logs in or clicks on the dashboard link, this routes them to their dashboard
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
@@ -39,6 +40,7 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
+//when a user clicks on the link to edit one of their posts, this routes them to the appropriate edit page
 router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
@@ -71,10 +73,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
                 return;
             }
 
-            //serialize the data
             const post = dbPostData.get({plain: true});
 
-            //pass data to template
             res.render('edit-post', {
                 post, 
                 loggedIn: req.session.loggedIn,

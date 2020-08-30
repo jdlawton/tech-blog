@@ -1,33 +1,20 @@
+<!-- handlebars template for displaying the page used to edit/delete a post-->
 <article>
-    <!--<a href="/dashboard"> &larr; Back to dashboard</a>-->
-    <h2>Edit Post</h2>
+    <h2>edit post</h2>
     <form class="edit-post-form">
         <div>
             <input name="post-title" type="text" value="{{post.title}}" /><br>
-            <!--<input name="post-content" type="text" value="{{post.content}}" /><br>-->
             <textarea name="post-content" rows="15" cols="100">{{post.content}}</textarea>
         </div>
         <div>
-            <p>posted by you on {{format_date post.created_at}}</p>
-            <!--|
-            <a href="/post/{{post.id}}">{{post.comments.length}} comments</a>-->
+            <p class="soft-text">posted by you on {{format_date post.created_at}}</p>
         </div>
         <button type="submit">update post</button>
         <button type="button" class="delete-post-btn">delete post</button>
     </form>
 </article>
 
-<!--<form class="comment-form">
-    <div>
-        <textarea name="comment-body"></textarea>
-    </div>
-    <div>
-        <button type="submit">add comment</button>
-    </div>
-</form>-->
-
 {{> comments post.comments}}
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<!--<script src="/javascript/comment.js"></script>-->
