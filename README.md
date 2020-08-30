@@ -9,6 +9,8 @@
   ## Live link
   [Heroku Link](https://afternoon-garden-01936.herokuapp.com/)
 
+  ![/dev/zero > screenshot](./public/images/blogscreenshot.png)
+
   ## Table of Contents
   * [Description](#description)
   * [Installation](#installation)
