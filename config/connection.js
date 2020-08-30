@@ -1,10 +1,9 @@
-//import the Sequelize constructor from the library
 const Sequelize = require('sequelize');
-
 require('dotenv').config();
 
 let sequelize;
 
+//important info is stored in .env file, JAWSDB is for hosting on heroku.
 if(process.env.JAWSDB_URL) {
     sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
@@ -16,3 +15,5 @@ if(process.env.JAWSDB_URL) {
 }
 
 module.exports = sequelize;
+
+
