@@ -5,6 +5,7 @@ const {Post, User, Comment} = require('../models');
 //route to render the homepage
 router.get('/', (req, res) => {
     console.log(req.session);
+    console.log(req.session.username);
     Post.findAll({
         attributes: ['id', 'title', 'content', 'created_at'],
         include: [
@@ -18,7 +19,8 @@ router.get('/', (req, res) => {
             const posts = dbPostData.map(post => post.get({plain: true}));
             res.render('homepage', {
                 posts,
-                loggedIn: req.session.loggedIn
+                loggedIn: req.session.loggedIn,
+                username: req.session.username
             });
         })
         .catch(err => {
@@ -27,7 +29,7 @@ router.get('/', (req, res) => {
         });
 });
 
-//route to render the login/signup page
+//route to render the login page
 router.get('/login', (req, res) => {
     //if user is already logged in, redirect to homepage
     if (req.session.loggedIn) {
@@ -36,6 +38,17 @@ router.get('/login', (req, res) => {
     }
 
     res.render('login');
+});
+
+//route to render the signup page
+router.get('/signup', (req, res) => {
+    //if user is already logged in, redirect to homepage
+    if (req.session.loggedIn) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('signup');
 });
 
 //route to display an individual post
@@ -77,7 +90,8 @@ router.get('/post/:id', (req, res) => {
             //pass data to template
             res.render('single-post', {
                 post,
-                loggedIn: req.session.loggedIn
+                loggedIn: req.session.loggedIn,
+                username: req.session.username
             });
         })
         .catch(err => {

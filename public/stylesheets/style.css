@@ -176,3 +176,7 @@ footer {
   padding: 1%;
   font-size: 110%;
 }
+
+#create-new-post {
+  display: none;
+}
