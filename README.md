@@ -6,7 +6,8 @@
   ## Description
   This is a CMS for a tech blog website that I created using MVC. The blog allows users to create accounts and log in where they can then create new blog posts or comment on existing ones.Logged in users can also edit or delete their own posts. Users do not need to be logged into read blog posts.
 
-  
+  ## Live link
+  [Heroku Link](https://afternoon-garden-01936.herokuapp.com/)
 
   ## Table of Contents
   * [Description](#description)
